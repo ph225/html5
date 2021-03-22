@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>*猜数字游戏*</h1>
+		请输入你猜的数字:<br>
+		答案是：{{keyNumber}}
+		<br />
+		<input v-model="userNumber" /><br />
+		<li v-if="userNumber==keyNumber">恭喜你答对了！</li>
+	</div>
+	<script type="text/javascript">
+		let v=new Vue({
+			el:'#app',
+			data:{
+				keyNumber:Math.floor(Math.random()*10),
+				userNumber:''
+			}
+		})
+	</script>
+</body>
+</html>
