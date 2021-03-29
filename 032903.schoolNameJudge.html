@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			请输入你想要查询的大学：</br>
+			<input v-model="schoolName" /><br>
+			<li v-if="schoolName=='清华大学'">985、211大学</li>
+			<li v-if="schoolName=='北京大学'">985、211大学</li>
+			<li v-if="schoolName=='南开大学'">985、211大学</li>
+			<li v-if="schoolName=='上海交通大学'">985、211大学</li>
+			<li v-if="schoolName=='武汉大学'">985、211大学</li>
+			<li v-if="schoolName=='华北电力大学'">211大学</li>
+			<li v-if="schoolName=='中国海洋大学'">211大学</li>
+			<li v-if="schoolName=='苏州大学'">211大学</li>
+			<li v-if="schoolName=='河海大学'">211大学</li>
+			<li v-if="schoolName=='江南大学'">211大学</li>
+			<li v-if="schoolName=='南京师范大学'">211大学</li>
+	
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data (){
+					return{
+						schoolName:''
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

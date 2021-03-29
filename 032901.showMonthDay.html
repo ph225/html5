@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			请输入月份：</br>
+			<input v-model="monthDay" /><br>
+			<li v-if="monthDay=='1'">31天</li>
+			<li v-if="monthDay=='2'">28天</li>
+			<li v-if="monthDay=='3'">31天</li>
+			<li v-if="monthDay=='4'">30天</li>
+			<li v-if="monthDay=='5'">31天</li>
+			<li v-if="monthDay=='6'">30天</li>
+			<li v-if="monthDay=='7'">31天</li>
+			<li v-if="monthDay=='8'">31天</li>
+			<li v-if="monthDay=='9'">30天</li>
+			<li v-if="monthDay=='10'">31天</li>
+			<li v-if="monthDay=='11'">30天</li>
+			<li v-if="monthDay=='12'">31天</li>
+			
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data (){
+					return{
+						monthDay:''
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
