@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+	</head>
+	<body>
+		<!-- 参数的传递 -->
+		<li id="app">这个数字是：{{msg}}</li>
+		<!-- <div id="app">这个数字是：{{msg}}</div>  -->
+		<!-- 引入Vue.js脚本 -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!-- 创建自定义脚本 -->
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					msg:Math.floor(Math.random()*10)
+				}
+			})
+			
+		</script>
+	</body>
+</html>
