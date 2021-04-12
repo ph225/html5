@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			请输入国家代码：<input type="text" v-model="rdmNumber"/>
+			
+			<div v-for="(country,index) in countrys">
+				<div v-if="rdmNumber==country.code">
+				    <br />	
+					国家：{{country.name}}
+					<br />
+					首都：{{country.capital}}
+					<br />
+					国家代码：{{country.code}}
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					rdmNumber:'1',
+					countrys:[
+						{name:'中国',capital:'北京',code:'86'},
+						{name:'美国',capital:'华盛顿',code:'1'},
+						{name:'英国',capital:'伦敦',code:'44'}
+						
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
