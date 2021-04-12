@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" @click="rdmNumber=Math.ceil(Math.random()*10)%5+1;" value="随机抽取"/>
+			<br>
+			
+			随机选出的幸运用户是:<br />
+		<!-- 	{{users[rdmNumber]}} -->
+			<div v-for="user in users">
+				<div v-if="rdmNumber==user.code">
+					用户:{{user.name}}
+					<br />
+					序号:{{user.code}}
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					rdmNumber:'1',
+					users:[
+						{name:'Tom',code:'001'},
+						{name:'Lily',code:'002'},
+						{name:'Candy',code:'003'},
+						{name:'Lisa',code:'004'},
+						{name:'Ann',code:'005'},
+						
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
