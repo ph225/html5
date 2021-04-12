@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{students[0]}}<br /><br><br /><!-- 法1 -->
+			
+			{{students[0].name}} <br><br /><br /><!-- 法2 -->
+			
+			<div v-for="(student) in students"><!-- 法3 -->
+				{{student}}
+			</div> <br><br /><br />
+			
+			<div v-for="(student,index) in students"><!-- 法4 -->
+				{{student.name}}
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					rdmNumber:'1',
+					students:[
+						{name:'Tom'},
+						{name:'Lily'},
+						{name:'Candy'},
+						{name:'Lisa'},
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
