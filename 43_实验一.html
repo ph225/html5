@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body align="center" style="font-family: 幼圆;">
+		<br /><br />
+		<h4>请点击找出右边图片中不同于左边图片之处：</h4>
+		<div id="app" >
+			<img src="./img/zc.jpg" @click="show()"/>
+			<br><br />
+			<b>您一共点击了{{number}}次</b><br>
+			<b>您一共找到了{{count}}处</b><br />
+			<b>您一共得了：{{score}}分</b>
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					number:0,
+					count:0,
+					score:0
+				},
+				methods:{
+					show(){
+						v.number++;
+						console.log(event.clientX+","+event.clientY);//控制台输出坐标
+						if(event.clientX>972 && event.clientX<988 && event.clientY>383 && event.clientY<402){
+							v.count++;
+							v.score=v.score+20;//蘑菇
+						} 
+						if(event.clientX>987 && event.clientX<1001 && event.clientY>337 && event.clientY<350){
+							v.count++;
+							v.score=v.score+20;  //心
+						} 
+						if(event.clientX>995 && event.clientX<1019 && event.clientY>230 && event.clientY<253){
+							v.count++;
+							v.score=v.score+20;   //窗户
+						} 
+						if(event.clientX>1075 && event.clientX<1105 && event.clientY>348 && event.clientY<365){
+							v.count++;
+							v.score=v.score+20;  //围巾
+						} 
+					    if(event.clientX>1124 && event.clientX<1174 && event.clientY>197 && event.clientY<229){
+							v.count++;
+							v.score=v.score+20;   //云
+						} 
+						if(v.score==100){
+							alert("恭喜您游戏通关!");
+						}
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>
