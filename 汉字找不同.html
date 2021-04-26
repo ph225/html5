@@ -1,0 +1,90 @@
+<!--来自https://www.h3399.cn/201807/594896.html-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<style>
+		            body {
+		                background: #ffffff;
+		                text-align: center;
+		            }
+		            h1 {
+		                text-align: center;
+		            }
+		            table {
+		                border: 1px solid #ccc;
+		                padding: 10px;
+		                border-radius: 8px;
+		                margin: 0 auto;
+		            }
+		            td {
+		                background: #5bba6e;
+		                color: #fff;
+		                font-size: 25px;
+		                width: 40px;
+		                height: 40px;
+		                border-radius: 4px;
+		                vertical-align: middle;
+		                text-align: center;
+		            }
+		</style>
+		 <div id="wrapper">
+		            <h1 v-show="!over">第 {{level-1}} 关 &nbsp;  剩余时间:{{lastTime}}</h1>
+		            <table v-show="!over">
+		                <tr v-for="items in tabelData">
+		                    <td v-for="item in items" @click="next(item)">{{txt[item]}}</td>
+		                </tr>
+		            </table>
+		            <h1 v-show="over">恭喜你闯过 {{level-2}} 关!</h1>
+		        </div>
+		        <script>
+		        var vm = new Vue({
+		            el:"#wrapper",
+		            data:{
+		                level:1,
+		                tabelData:[],
+		                txt:["巳","己"],
+		                lastTime:60,
+		                over:false
+		            },
+		            methods:{
+		                getList(){
+		                    this.level ++;
+		                    let num = this.level;
+		                    let list = new Array(num).fill(0).map(()=>new Array(num).fill(0));
+		                    let row = Math.floor( Math.random()*num );
+		                    let col = Math.floor( Math.random()*num );
+		                    list[row][col] = 1;
+		                    this.tabelData = list
+		                },
+		                next(num){
+		                    if(num==1){
+		                        this.getList();
+		                    }else{
+		                        alert("亲, 再仔细看看!")
+		                    }
+		                },
+		                getTime(){
+		                    setTimeout(()=>{
+		                        this.lastTime--;
+		                        if( this.lastTime == 0 ){
+		                            this.over = true;
+		                        }else{
+		                            this.getTime()
+		                        }
+		                    },1000)
+		                }
+		            },
+		            mounted(){
+		                this.getList();
+		                this.getTime();
+		            }
+		        })
+		    </script>
+	</body>
+
+ </html>
