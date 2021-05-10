@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" @keydown="show1()"/>
+			<!-- <input type="text" @keypress="show1()"/>
+			     <input type="text" @keyup="show1()"/> 都是一样的效果  -->
+				<br /> 
+			<input type="text" @keydown.k="show1()"/> <!-- 按k才触发键盘事件 -->
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:"#app",
+				data:{
+					
+				},
+				methods:{
+					show1(){
+						alert("已触发键盘事件")
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
