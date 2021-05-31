@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h2>青蛙过河游戏</h2>
+		<canvas id="myCanvas" width="800" height="450"></canvas>
+		<div id="app">
+			<b>您一共跳跃了{{foot}}次</b><br>
+			<b>您一共得了：{{score}}分</b><br>
+			<input type="text" v-model="userString" @click="show()" @keyup="show()" name="" id="" value="" />
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:"#app",
+				data:{
+					userString:"",
+					foot:0,
+					score:0
+				},
+				methods:{
+					show(){
+						//判断输入的字符串
+						console.log(this.userString);
+						
+						let canvas=document.getElementById("myCanvas");
+						let context=canvas.getContext("2d");
+						
+						// 显示背景
+						let img_background=new Image();
+						img_background.src="./img/background.gif";
+						// 显示青蛙
+						let img_frog=new Image();
+						img_frog.src="./img/frog.gif";
+						
+						// 清空画布
+						context.clearRect(0,0,800,600);
+						// 加载图片
+						img_background.onload=function(){
+							context.drawImage(img_background,0,0);
+						}
+						img_frog.onload=function(){
+							context.drawImage(img_frog,200,300);
+						}
+						
+						if(this.userString=="hello"){
+							img_frog.onload=function(){
+								context.drawImage(img_frog,200,150);
+							}
+							this.userString=""
+							v.foot++;
+							v.score=v.score+30;
+						}
+						else if(this.userString=="world"){
+							img_frog.onload=function(){
+								context.drawImage(img_frog,320,100);
+							}
+							this.userString=""
+							v.foot++;
+							v.score=v.score+30;
+						}
+						else if(this.userString=="hi"){
+							img_frog.onload=function(){
+								context.drawImage(img_frog,110,30);
+							}
+							this.userString=""
+							v.foot++;
+							v.score=v.score+40;
+						}
+						if(v.score==100){
+							alert("恭喜您成功通关!");
+						}
+					}
+				}	
+			})
+		</script>
+		
+	</body>
+</html>
